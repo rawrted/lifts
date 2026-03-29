@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rawrted Lifts</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #18181b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid #e4e4e7;
+      background: #ffffff;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+
+    .brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #71717a;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      border: 1px solid #d4d4d8;
+      background: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background: #f4f4f5;
+    }
+
+    .btn-dark {
+      background: #18181b;
+      color: #ffffff;
+    }
+
+    .btn-dark:hover {
+      background: #3f3f46;
+    }
+
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #71717a;
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #09090b;
+      max-width: 700px;
+    }
+
+    .hero p.description {
+      margin-top: 24px;
+      max-width: 620px;
+      font-size: 18px;
+      color: #52525b;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .feature-shell {
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .feature-list {
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-item {
+      padding: 16px;
+      border: 1px solid #e4e4e7;
+      border-radius: 18px;
+      background: #fafafa;
+      color: #3f3f46;
+      font-size: 14px;
+    }
+
+    .section-muted {
+      background: #fafafa;
+      border-top: 1px solid #e4e4e7;
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      margin-top: 12px;
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #09090b;
+    }
+
+    .section-text {
+      margin-top: 16px;
+      max-width: 680px;
+      font-size: 17px;
+      color: #52525b;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .testimonial-card p.quote {
+      font-size: 16px;
+      color: #3f3f46;
+    }
+
+    .testimonial-card p.name {
+      margin-top: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #09090b;
+    }
+
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .booking-card {
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .small-text {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .testimonial-grid,
+      .booking-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero,
+      .section {
+        padding: 64px 0;
+      }
+
+      .topbar-inner {
+        padding: 18px 0;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Rawrted Lifts</div>
+      <a href="#book" class="btn btn-outline">Book a Call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">1:1 Fitness Coaching for Content Creators</div>
+            <h1>Get leaner, stronger, and more consistent with coaching built for creators.</h1>
+            <p class="description">
+              Rawrted Lifts helps content creators stay in shape with simple, personalized 1:1 coaching.
+              Train with structure, stay accountable, and build a physique that supports your brand and lifestyle.
+            </p>
+            <div class="button-row">
+              <a href="#book" class="btn btn-dark">Book a Call</a>
+              <a href="#testimonials" class="btn btn-outline">View Testimonials</a>
+            </div>
+          </div>
+
+          <div class="feature-shell">
+            <div class="feature-card">
+              <div class="eyebrow">What you get</div>
+              <div class="feature-list">
+                <div class="feature-item">1:1 coaching built around your content schedule</div>
+                <div class="feature-item">Custom training guidance for physique, performance, and consistency</div>
+                <div class="feature-item">Accountability, check-ins, and habit support so you stay on track</div>
+                <div class="feature-item">A coaching approach designed for creators who want to look good on and off camera</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section section-muted">
+      <div class="container">
+        <div class="eyebrow">Testimonials</div>
+        <h2>Real feedback from clients.</h2>
+        <p class="section-text">
+          Keep this section simple for now and swap in your real client quotes whenever you are ready.
+        </p>
+
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p class="quote">“Built a clear training plan that fit my filming schedule and helped me stay consistent.”</p>
+            <p class="name">Creator Client</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="quote">“The accountability and weekly check-ins made fitness finally feel structured and realistic.”</p>
+            <p class="name">Lifestyle Influencer</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="quote">“I looked better on camera, felt stronger, and had a plan I could actually follow while traveling.”</p>
+            <p class="name">Fitness Creator</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="book" class="section">
+      <div class="container">
+        <div class="booking-wrap">
+          <div>
+            <div class="eyebrow">Book a Call</div>
+            <h2>Let’s see if coaching is a fit.</h2>
+            <p class="section-text">
+              Use this section to connect your booking link so creators can schedule a call with you directly.
+              You can replace the placeholder button below with your Calendly, Google Calendar booking page, or any scheduler.
+            </p>
+          </div>
+
+          <div class="booking-card">
+            <p style="font-size: 14px; color: #52525b;">Ready to start?</p>
+            <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" class="btn btn-dark" style="margin-top: 16px; text-align: center;">
+              Schedule Your Call
+            </a>
+            <p class="small-text">Replace the booking link with your real scheduling page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
